@@ -1,0 +1,30 @@
+{
+  "name": "utec-preespecialidad",
+  "version": "1.0.0",
+  "description": "Web app for management the utec-prespecialty",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "start": "node dist/server.js"
+  },
+  "author": "Fernando Aguilar & Vic Flores",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.18.1",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "mongoose": "^5.10.7",
+    "schemaglue": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4"
+  }
+}

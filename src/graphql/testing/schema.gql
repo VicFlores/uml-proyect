@@ -1,0 +1,7 @@
+type Testing {
+  title: String!
+}
+
+type Query {
+  testingMessage: String!
+}
