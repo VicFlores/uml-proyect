@@ -1,2 +1,2 @@
-# Universidad tecnologica Pre-especialidad
+# Proyecto de UML
 ### (Backend: GraphQL, MongoDB, NodeJS)
