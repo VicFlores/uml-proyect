@@ -1,0 +1,30 @@
+type Employee {
+  name: String
+  lastName: String
+  email: String
+}
+
+type Token {
+  token: String
+}
+
+input EmployeeInput {
+  name: String
+  lastName: String
+  email: String
+  password: String
+}
+
+input AuthInput {
+  email: String
+  password: String
+}
+
+type Query {
+  getEmployee (input: AuthInput): Employee
+}
+
+type Mutation {
+  newEmployee (input: EmployeeInput): Employee
+  authEmployee (input: AuthInput): Token
+}
