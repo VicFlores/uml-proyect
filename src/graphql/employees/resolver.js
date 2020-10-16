@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 /* eslint-disable no-param-reassign */
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
