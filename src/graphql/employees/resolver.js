@@ -6,17 +6,18 @@ import Employees from '../../models/Employees';
 require('dotenv').config({ path: 'variables.env' });
 
 const createToken = (employee, secret, expiresIn) => {
-  const { _id, name, lastName, email } = employee;
-  return jwt.sign({ _id, name, lastName, email }, secret, { expiresIn });
+  const {
+    id, name, lastName, email,
+  } = employee;
+  return jwt.sign({
+    id, name, lastName, email,
+  }, secret, { expiresIn });
 };
 
 exports.resolver = {
 
   Query: {
-    getEmployee: async (obj, { input }) => {
-      const employeeDB = await Employees.findOne({ email: input.email });
-      return employeeDB;
-    },
+    getEmployee: async (obj, {}, ctx) => ctx.employee,
   },
 
   Mutation: {
