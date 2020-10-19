@@ -1,0 +1,27 @@
+type Bills {
+  id: ID
+  name: String
+  price: Float
+  from: String
+  to: String
+  client: String
+  employee: ID
+}
+
+input BillInput {
+  name: String!
+  price: Float!
+  to: String!
+  client: String!
+  employee: ID!
+}
+
+type Query {
+  getBills: [Bills]
+}
+
+type Mutation {
+  newBill( input: BillInput ): Bills
+  updateBill( id: ID!, input: BillInput ): Bills
+  deleteBill( id: ID! ): String
+}
