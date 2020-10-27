@@ -6,6 +6,7 @@ type Bills {
   to: String
   client: String
   employee: ID
+  flaw: String
 }
 
 input BillInput {
@@ -16,6 +17,14 @@ input BillInput {
   employee: ID!
 }
 
+input WarrantiesInput {
+  flaw: String!
+}
+
+input seachClientInput {
+  name: String!
+}
+
 type Query {
   getBills: [Bills]
 }
@@ -24,4 +33,5 @@ type Mutation {
   newBill( input: BillInput ): Bills
   updateBill( id: ID!, input: BillInput ): Bills
   deleteBill( id: ID! ): String
+  warranty( id: ID!, input: WarrantiesInput): Bills
 }

@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 import Bills from '../../models/Bills';
-import Employees from '../../models/Employees'
+import Employees from '../../models/Employees';
 
 exports.resolver = {
 
@@ -56,5 +56,22 @@ exports.resolver = {
       await Bills.findByIdAndDelete({ _id: id });
       return 'Bill successfully deleted';
     },
+
+    warranty: async (obj, { id, input }, ctx) => {
+      let warrantyDB = await Bills.findById({ _id: id });
+      if (!warrantyDB) {
+        return new Error('Bill not founded');
+      }
+      if (warrantyDB.employee.toString() !== ctx.employee.id) {
+        return new Error('you dont have the right credentials');
+      }
+      try {
+        warrantyDB.flaw = input.flaw;
+        await warrantyDB.save();
+        return warrantyDB;
+      } catch (error) {
+        return new Error(`warranty, ${error}`);
+      }
+    },
   },
-}
+};
