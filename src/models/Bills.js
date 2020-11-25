@@ -6,8 +6,8 @@ const billsSchema = new Schema({
   from: { type: Date, default: Date.now() },
   to: { type: String, required: true, trim: true },
   client: { type: String, required: true, trim: true },
-  flaw: { type: String, trim: true },
-  employee: { type: Schema.Types.ObjectId, ref: 'Employees', required: true },
+  flaw: { type: String, trim: true, default: 'Pendiente' },
+  employee: { type: Schema.Types.ObjectId, ref: 'Employees' },
 });
 
 module.exports = model('Bills', billsSchema);

@@ -14,18 +14,19 @@ exports.resolver = {
         return new Error(`getBills, ${error}`);
       }
     },
+
+    getBill: async (obj, { id }) => {
+      const billDB = await Bills.findById({ _id: id });
+      return billDB;
+    },
   },
 
   Mutation: {
     newBill: async (obj, { input }, ctx) => {
-      const { employee } = input;
       const { id } = ctx.employee;
-      const employeeDB = await Employees.findById(employee);
-      if (employeeDB.id !== id) {
-        return new Error('you dont have the right credentials');
-      }
       try {
         const newBill = new Bills(input);
+        newBill.employee = id;
         const billsDB = await newBill.save();
         return billsDB;
       } catch (error) {

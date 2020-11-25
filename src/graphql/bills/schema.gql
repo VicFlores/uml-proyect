@@ -14,7 +14,6 @@ input BillInput {
   price: Float!
   to: String!
   client: String!
-  employee: ID!
 }
 
 input WarrantiesInput {
@@ -27,6 +26,7 @@ input seachClientInput {
 
 type Query {
   getBills: [Bills]
+  getBill( id: ID! ): Bills
 }
 
 type Mutation {
