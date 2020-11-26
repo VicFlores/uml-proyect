@@ -47,13 +47,13 @@ exports.resolver = {
       const verifyEmp = await Employees.findOne({ email });
 
       if (!verifyEmp) {
-        return new Error('!User or password incorrect');
+        return new Error('Usuario o contraseña incorrecta');
       }
 
       const correctPassword = await bcryptjs.compare(password, verifyEmp.password);
 
       if (!correctPassword) {
-        return new Error('User or !password incorrect');
+        return new Error('Usuario o contraseña incorrecta');
       }
 
       return {
