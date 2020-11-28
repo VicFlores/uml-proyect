@@ -1,6 +1,6 @@
+/* eslint-disable no-empty-pattern */
 /* eslint-disable prefer-const */
 import Bills from '../../models/Bills';
-import Employees from '../../models/Employees';
 
 exports.resolver = {
 
@@ -28,6 +28,7 @@ exports.resolver = {
         const newBill = new Bills(input);
         newBill.employee = id;
         const billsDB = await newBill.save();
+        console.log(billsDB);
         return billsDB;
       } catch (error) {
         return new Error(`newBill, ${error}`);
